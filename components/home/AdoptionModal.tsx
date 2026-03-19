@@ -10,32 +10,45 @@ export default function AdoptionModal({ petId, onClose, onSubmit }: any) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50 px-4">
 
-      <div className="bg-white rounded-xl w-full max-w-md p-6">
 
-        <h2 className="text-xl font-bold mb-3">Adoption Request</h2>
+      <div className="w-full max-w-md bg-white/80 backdrop-blur-xl border border-white/40 rounded-3xl shadow-2xl p-6 space-y-4">
+
+
+        <h2 className="text-xl font-bold text-gray-800 flex items-center gap-2">
+          🐾 Adoption Request
+        </h2>
+        <p className="text-sm text-gray-500">
+          Tell us why you’d love to adopt this pet 🐶🐱
+        </p>
+
 
         <textarea
-          placeholder="Why do you want to adopt?"
+          placeholder="I will take good care, provide love, and a happy home..."
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="w-full border p-2 rounded"
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+            setMessage(e.target.value)
+          }
+          className="w-full h-28 p-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-purple-300 transition resize-none"
         />
 
-        <div className="flex gap-2 mt-4">
+
+        <div className="flex gap-3 pt-2">
+
           <button
             onClick={handleSubmit}
-            className="bg-black text-white px-4 py-2 rounded"
+            className="flex-1 py-2.5 rounded-xl font-semibold text-white bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 hover:opacity-90 transition shadow-lg"
           >
-            Submit
+            🚀 Submit
           </button>
+
 
           <button
             onClick={onClose}
-            className="border px-4 py-2 rounded"
+            className="flex-1 py-2.5 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100 transition"
           >
-            Cancel
+            ❌ Cancel
           </button>
         </div>
       </div>
